@@ -12,6 +12,11 @@ public class PersonDataTable extends AbstractTableModel {
         scoresArrayList.add(scores);
         this.fireTableDataChanged();
     }
+
+    public void removeScore(int index) {
+        scoresArrayList.remove(index);
+        this.fireTableDataChanged();
+    }
     public String getColumnName(int column) {
         switch (column) {
             case 0:

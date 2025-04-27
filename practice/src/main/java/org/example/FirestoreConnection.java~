@@ -31,6 +31,13 @@ public class FirestoreConnection {
             e.printStackTrace();
         }
     }
+    public void saveName(String firstName, String lastName) {
+        Map<String, Object> name = new HashMap<>();
+        name.put("FirstName", firstName);
+        name.put("LastName", lastName);
+
+        db.collection("Students").document(firstName + "\n" + lastName).set(name);
+    }
     public void addScore(String firstName, String lastName, ArrayList<Scores> scores) {
         DocumentReference documentReference = db.collection("Students").document(firstName + "\n" + lastName);
         Map<String, Object> data = new HashMap<>();

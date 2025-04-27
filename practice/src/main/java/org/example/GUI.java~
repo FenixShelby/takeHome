@@ -19,7 +19,7 @@ public class GUI extends JFrame{
         firstNameField = new JTextField(10);
         lastNameField = new JTextField(10);
         saveButton = new JButton("Save");
-        deleteButton = new JButton("Clear All");
+        deleteButton = new JButton("Delete");
         addButton = new JButton("Add");
         rawScoreField = new JTextField(10);
         totalScoreField = new JTextField(10);

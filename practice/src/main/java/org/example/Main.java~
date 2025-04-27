@@ -48,7 +48,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int size = frame.personDataTable.scoresArrayList.size();
-                for (int i = size - 1; i >= 0; i--) {
+                for (int i = 0; i <= size; i++) {
                     frame.personDataTable.removeScore(i);
                 }
             }
