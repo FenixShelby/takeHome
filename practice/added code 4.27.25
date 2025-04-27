@@ -1,0 +1,30 @@
+frame.addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String rawScore = frame.rawScoreField.getText();
+                String totalScore = frame.totalScoreField.getText();
+                Scores score = new Scores(rawScore, totalScore);
+                frame.personDataTable.addScore(score);
+            }
+        });
+
+
+        frame.saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String firstName = frame.firstNameField.getText();
+                String lastName = frame.lastNameField.getText();
+                firestoreConnection.addScore(firstName, lastName, frame.personDataTable.scoresArrayList);
+            }
+        });
+
+    //////
+
+    public void addScore(String firstName, String lastName, ArrayList<Scores> scores) {
+        DocumentReference documentReference = db.collection("Students").document(firstName + "\n" + lastName);
+        Map<String, Object> data = new HashMap<>();
+        data.put("FirstName", firstName);
+        data.put("LastName", lastName);
+        data.put("scores", scores);
+        documentReference.set(data);
+    }
